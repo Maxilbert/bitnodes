@@ -26,10 +26,10 @@ seeders =
 workers = 500
 
 # Print debug output
-debug = False
+debug = True
 
 # Public IP address for network interface
-source_address = 0.0.0.0
+source_address = 128.235.40.191
 
 # Protocol version to use for outgoing version message
 protocol_version = 70015
@@ -41,7 +41,7 @@ protocol_version = 70015
 # crawler. This is so that users will not confuse your crawler with another
 # instance that is already running and generating data for the project.
 # -----------------------------------------------------------------------------
-user_agent = /bitnodes.earn.com:0.1/
+user_agent = /btc.cs.njit.edu:0.1/
 
 # Services to use for outgoing network address message
 services = 0

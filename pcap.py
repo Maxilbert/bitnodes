@@ -182,11 +182,14 @@ class Cache(object):
                     if rkey_ms is None:
                         REDIS_CONN.set(rkey, timestamp)
                         self.redis_pipe.set("lastblockhash", inv['hash'])
-                    elif (timestamp - int(rkey_ms)) / 1000 > CONF['ttl']:
-                        # Ignore block inv first seen more than 3 hours ago
+                    elif 6 * (timestamp - int(rkey_ms)) / 1000 > CONF['ttl']:
+                        # Ignore block inv first seen more than half hour ago
                         logging.debug("Skip: %s", key)
                         continue
-                self.redis_pipe.zadd(key, timestamp, self.node_hash(node))
+		else:
+			continue #Don't have to store transaction propagations
+                #self.redis_pipe.zadd(key, timestamp, self.node_hash(node))
+		self.redis_pipe.zadd(key, timestamp, node[0])
                 self.redis_pipe.expire(key, CONF['ttl'])
             self.count += msg['count']
         elif msg['command'] == "pong":
