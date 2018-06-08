@@ -182,8 +182,8 @@ class Cache(object):
                     if rkey_ms is None:
                         REDIS_CONN.set(rkey, timestamp)
                         self.redis_pipe.set("lastblockhash", inv['hash'])
-                    elif 6 * (timestamp - int(rkey_ms)) / 1000 > CONF['ttl']:
-                        # Ignore block inv first seen more than half hour ago
+                    elif (timestamp - int(rkey_ms)) / 1000 > CONF['ttl']:
+                        # Ignore block inv first seen more than 3 hours
                         logging.debug("Skip: %s", key)
                         continue
 		else:

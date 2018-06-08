@@ -5,6 +5,7 @@ python -u crawl.py conf/crawl.f9beb4d9.conf slave > log/crawl.f9beb4d9.slave.1.o
 python -u crawl.py conf/crawl.f9beb4d9.conf slave > log/crawl.f9beb4d9.slave.2.out &
 python -u crawl.py conf/crawl.f9beb4d9.conf slave > log/crawl.f9beb4d9.slave.3.out &
 python -u crawl.py conf/crawl.f9beb4d9.conf slave > log/crawl.f9beb4d9.slave.4.out &
+#python -u crawl.py conf/crawl.f9beb4d9.conf slave > log/crawl.f9beb4d9.slave.5.out &
 
 python -u ping.py conf/ping.f9beb4d9.conf master > log/ping.f9beb4d9.master.out &
 python -u ping.py conf/ping.f9beb4d9.conf slave > log/ping.f9beb4d9.slave.1.out &
@@ -16,6 +17,12 @@ python -u ping.py conf/ping.f9beb4d9.conf slave > log/ping.f9beb4d9.slave.6.out 
 python -u ping.py conf/ping.f9beb4d9.conf slave > log/ping.f9beb4d9.slave.7.out &
 python -u ping.py conf/ping.f9beb4d9.conf slave > log/ping.f9beb4d9.slave.8.out &
 python -u ping.py conf/ping.f9beb4d9.conf slave > log/ping.f9beb4d9.slave.9.out &
+#python -u ping.py conf/ping.f9beb4d9.conf slave > log/ping.f9beb4d9.slave.10.out &
+#python -u ping.py conf/ping.f9beb4d9.conf slave > log/ping.f9beb4d9.slave.11.out &
+#python -u ping.py conf/ping.f9beb4d9.conf slave > log/ping.f9beb4d9.slave.12.out &
+#python -u ping.py conf/ping.f9beb4d9.conf slave > log/ping.f9beb4d9.slave.13.out &
+#python -u ping.py conf/ping.f9beb4d9.conf slave > log/ping.f9beb4d9.slave.14.out &
+#python -u ping.py conf/ping.f9beb4d9.conf slave > log/ping.f9beb4d9.slave.15.out &
 
 #python -u resolve.py conf/resolve.f9beb4d9.conf > log/resolve.f9beb4d9.out &
 
@@ -27,7 +34,12 @@ python -u pcap.py conf/pcap.f9beb4d9.conf > log/pcap.f9beb4d9.1.out &
 python -u pcap.py conf/pcap.f9beb4d9.conf > log/pcap.f9beb4d9.2.out &
 python -u pcap.py conf/pcap.f9beb4d9.conf > log/pcap.f9beb4d9.3.out &
 python -u pcap.py conf/pcap.f9beb4d9.conf > log/pcap.f9beb4d9.4.out &
+python -u pcap.py conf/pcap.f9beb4d9.conf > log/pcap.f9beb4d9.5.out &
+#python -u pcap.py conf/pcap.f9beb4d9.conf > log/pcap.f9beb4d9.6.out &
+#python -u pcap.py conf/pcap.f9beb4d9.conf > log/pcap.f9beb4d9.7.out &
 
+cd data/pcap/f9beb4d9/
+bash tcpdump.sh
 
 #sudo tcpdump -i eth0 -w %s.eth0.pcap -v -n -G 2 -B 65536 -Z root 'tcp and not src host 128.235.40.191' > eth0 2>&1 &
 #sudo tcpdump -i lo -w %s.lo.pcap -v -n -G 2 -B 65536 -Z root 'tcp and port 9050' > lo 2>&1 & #TOR
